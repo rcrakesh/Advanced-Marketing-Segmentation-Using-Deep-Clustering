@@ -18,13 +18,13 @@ os.environ["TF_CPP_MIN_LOG_LEVEL"] = "2"
 st.title("Advanced Customer Segmentation Tool")
 st.write("Upload your dataset (CSV file) to perform customer segmentation.")
 
-sample_file = "C:/ml/customer_segmentation_dataset (2).csv"
-st.download_button(
-    label="Download Sample Dataset",
-    data=open("/mnt/data/customer_segmentation_dataset (2).csv", "rb"),
-    file_name="customer_segmentation_sample.csv",
-    mime="text/csv"
-)
+file_path = "customer_segmentation_dataset (2).csv"
+
+if os.path.exists(file_path):
+    with open(file_path, "rb") as f:
+        st.download_button("Download Sample Dataset", f, file_name="customer_segmentation_dataset (2).csv", mime="text/csv")
+else:
+    st.error("Sample dataset not found. Please upload it manually.")
 
 uploaded_file = st.file_uploader("Upload your dataset (CSV file)", type=["csv"])
 
