@@ -18,6 +18,13 @@ os.environ["TF_CPP_MIN_LOG_LEVEL"] = "2"
 st.title("Advanced Customer Segmentation Tool")
 st.write("Upload your dataset (CSV file) to perform customer segmentation.")
 
+sample_file = "C:/ml/customer_segmentation_dataset (2).csv"
+st.download_button(
+    label="Download Sample Dataset",
+    data=open("/mnt/data/customer_segmentation_dataset (2).csv", "rb"),
+    file_name="customer_segmentation_sample.csv",
+    mime="text/csv"
+)
 
 uploaded_file = st.file_uploader("Upload your dataset (CSV file)", type=["csv"])
 
